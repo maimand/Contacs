@@ -1,9 +1,22 @@
 package com.example.contacts;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 
+@Entity(tableName = "contacts")
 public class Contact implements Serializable {
-    private String name, number, email;
+    @PrimaryKey(autoGenerate = true)
+    int id;
+    @ColumnInfo(name = "name")
+    private String name;
+    @ColumnInfo(name = "number")
+    private String number;
+    @ColumnInfo(name = "email")
+    private String email;
+    @ColumnInfo(name = "avatar")
     private int avatar;
 
     public Contact(String name, String number, String email, int avatar) {
@@ -45,3 +58,5 @@ public class Contact implements Serializable {
         this.avatar = avatar;
     }
 }
+
+
